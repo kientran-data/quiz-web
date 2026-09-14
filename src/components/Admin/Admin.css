@@ -1,0 +1,35 @@
+.admin-dashboard {
+  padding: 2rem;
+  background-color: var(--color-background-soft, rgba(0, 0, 0, 0.05));
+  border-radius: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.admin-dashboard h1 {
+  margin-bottom: 2rem;
+}
+
+.admin-dashboard table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-dashboard th,
+.admin-dashboard td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(136, 136, 136, 0.2);
+  text-align: left;
+}
+
+.admin-dashboard th {
+  font-weight: 600;
+  color: #888;
+}
+
+@media (prefers-color-scheme: dark) {
+  .admin-dashboard {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+}
