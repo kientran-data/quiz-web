@@ -11,6 +11,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const questionsPath = path.join(__dirname, 'data', 'questions.json');
 const getQuestions = () => JSON.parse(fs.readFileSync(questionsPath, 'utf8'));
 
+// SSE Admin Clients
+let adminClients = [];
+
+const broadcastToAdmins = (data) => {
+  const message = `data: ${JSON.stringify(data)}\n\n`;
+  adminClients.forEach(client => client.write(message));
+};
+
 // GET /api/config
 router.get('/config', (req, res) => {
   const config = db.prepare('SELECT * FROM quiz_config WHERE id = 1').get();
@@ -104,7 +112,7 @@ router.post('/attempts/:id/submit', (req, res) => {
   const attemptId = req.params.id;
   const { answers } = req.body; // Array of { questionId, selectedOptionIndex }
 
-  const attempt = db.prepare('SELECT * FROM attempts WHERE id = ? AND status = "in_progress"').get(attemptId);
+  const attempt = db.prepare('SELECT * FROM attempts WHERE id = ? AND status = \'in_progress\'').get(attemptId);
   if (!attempt) return res.status(400).json({ error: 'Invalid or already submitted attempt' });
 
   const allQuestions = getQuestions();
@@ -137,6 +145,22 @@ router.post('/attempts/:id/submit', (req, res) => {
   })();
 
   res.json({ score });
+
+  // After successful submission, broadcast to SSE clients
+  try {
+    const completedAttempt = db.prepare(`
+      SELECT a.id, p.name, p.email, a.started_at, a.submitted_at, a.elapsed_seconds, a.score, a.status
+      FROM attempts a
+      JOIN participants p ON a.participant_id = p.id
+      WHERE a.id = ?
+    `).get(attemptId);
+    
+    if (completedAttempt) {
+      broadcastToAdmins(completedAttempt);
+    }
+  } catch (err) {
+    console.error('Failed to broadcast SSE', err);
+  }
 });
 
 // ADMIN ROUTES
@@ -148,6 +172,19 @@ router.get('/admin/attempts', (req, res) => {
     ORDER BY a.started_at DESC
   `).all();
   res.json(rows);
+});
+
+router.get('/admin/events', (req, res) => {
+  res.setHeader('Content-Type', 'text/event-stream');
+  res.setHeader('Cache-Control', 'no-cache');
+  res.setHeader('Connection', 'keep-alive');
+  res.flushHeaders();
+
+  adminClients.push(res);
+
+  req.on('close', () => {
+    adminClients = adminClients.filter(client => client !== res);
+  });
 });
 
 export default router;

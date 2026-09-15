@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Assessment Results - Antigravity Engineering Training</title>
+    <!-- Tailwind CSS v3 with plugins -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                        },
+                        surface: {
+                            900: '#0c0e12',
+                            850: '#11141a',
+                            800: '#171b24',
+                            700: '#222836',
+                            600: '#323b4e',
+                        }
+                    },
+                    fontFamily: {
+                        mono: ['JetBrains Mono', 'Menlo', 'Monaco', 'Courier New', 'monospace'],
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- BEGIN: Custom Styles -->
+    <style data-purpose="custom-radial-progress">
+        /* Progress ring SVG styling */
+        .progress-circle-bg {
+            stroke: #222836;
+        }
+
+        .progress-circle-meter {
+            stroke: #10b981;
+            stroke-dasharray: 440;
+            stroke-dashoffset: 88;
+            /* 80% completion */
+            transition: stroke-dashoffset 1s ease-in-out;
+        }
+    </style>
+    <style data-purpose="theme-decorations">
+        /* Subtle grid pattern background */
+        .blueprint-bg {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+    <!-- END: Custom Styles -->
+</head>
+
+<body
+    class="bg-surface-900 text-slate-100 min-h-screen blueprint-bg flex flex-col font-sans antialiased selection:bg-brand-500 selection:text-white">
+    <!-- BEGIN: Navigation Header -->
+    <header class="border-b border-surface-700/80 bg-surface-850/90 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Breadcrumb & Training Module Title -->
+            <div class="flex items-center space-x-3">
+                <!-- Logo / Icon -->
+                <div
+                    class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center shadow-lg shadow-brand-500/20">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                        <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2"></path>
+                    </svg>
+                </div>
+                <div>
+                    <nav aria-label="Breadcrumb" class="flex items-center text-xs font-mono text-slate-400 space-x-1.5">
+                        <span>Training Modules</span>
+                        <span class="text-slate-600">/</span>
+                        <span>Distributed Systems</span>
+                        <span class="text-slate-600">/</span>
+                        <span class="text-emerald-400 font-medium">Assessment Results</span>
+                    </nav>
+                    <div class="text-sm font-semibold text-slate-200 tracking-tight">
+                        Antigravity Engineering Training <span class="text-slate-500 font-normal">• Module 2: System
+                            Architecture</span>
+                    </div>
+                </div>
+            </div>
+            <!-- User Profile & Timestamp Info -->
+            <div class="flex items-center space-x-4 text-xs font-mono">
+                <div class="hidden md:flex items-center space-x-2 text-slate-400 border-r border-surface-700 pr-4">
+                    <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                        <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                    <span>Recorded: Just now</span>
+                </div>
+                <div class="flex items-center space-x-2.5">
+                    <div class="text-right leading-tight hidden sm:block">
+                        <div class="text-slate-200 font-sans font-medium text-xs">alex.chen@antigravity.io</div>
+                        <div class="text-slate-500 text-[10px]">Staff Software Engineer</div>
+                    </div>
+                    <div
+                        class="w-8 h-8 rounded-full bg-surface-700 border border-surface-600 flex items-center justify-center text-emerald-400 font-bold text-xs">
+                        AC
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- END: Navigation Header -->
+    <!-- BEGIN: Main Dashboard Content -->
+    <main class="flex-1 max-w-5xl w-full mx-auto px-4 py-8 sm:px-6 lg:px-8 flex flex-col justify-center">
+        <!-- Assessment Results Card Container -->
+        <div
+            class="bg-surface-850/95 border border-surface-700 rounded-2xl shadow-2xl overflow-hidden backdrop-blur-xl">
+            <!-- Card Top Status Banner -->
+            <div
+                class="px-6 py-5 border-b border-surface-700 bg-surface-800/40 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div class="flex items-center space-x-3.5">
+                    <!-- Green Success Badge Icon -->
+                    <div
+                        class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shadow-inner">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                            <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+                            </path>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <h1 class="text-lg font-bold text-slate-100 tracking-tight">Assessment Completed</h1>
+                            <span
+                                class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/20 font-mono uppercase">
+                                Passed
+                            </span>
+                        </div>
+                        <p class="text-xs text-slate-400 font-mono mt-0.5">
+                            Completed in 14m 32s • 10 Questions evaluated
+                        </p>
+                    </div>
+                </div>
+                <!-- Evaluation Badge -->
+                <div class="flex items-center">
+                    <div
+                        class="bg-surface-700/60 border border-surface-600 rounded-lg px-3 py-1.5 text-right font-mono">
+                        <div class="text-[10px] text-slate-400 uppercase tracking-wider">Evaluation Tier</div>
+                        <div class="text-xs font-semibold text-emerald-300">BENCHMARK MET • TOP 15%</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card Body Content -->
+            <div class="p-6 sm:p-8 space-y-8">
+                <!-- Score Performance & High-Level Metric Tiles Grid -->
+                <section aria-label="Performance Summary" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <!-- Visual Circular Radial Gauge (4 cols on lg) -->
+                    <div class="lg:col-span-4 flex flex-col items-center justify-center p-6 rounded-xl bg-surface-800/30 border border-surface-700/60"
+                        data-purpose="radial-score-visual">
+                        <div class="relative w-44 h-44 flex items-center justify-center">
+                            <svg class="w-full h-full transform -rotate-90" viewbox="0 0 160 160">
+                                <!-- Background track -->
+                                <circle class="progress-circle-bg" cx="80" cy="80" fill="transparent" r="70"
+                                    stroke-width="12"></circle>
+                                <!-- Progress bar track (80%) -->
+                                <circle class="progress-circle-meter" cx="80" cy="80" fill="transparent" r="70"
+                                    stroke-linecap="round" stroke-width="12"></circle>
+                            </svg>
+                            <!-- Center Text Content -->
+                            <div class="absolute flex flex-col items-center justify-center text-center">
+                                <span class="text-4xl font-extrabold text-white tracking-tight font-sans">80<span
+                                        class="text-2xl text-emerald-400 font-semibold">%</span></span>
+                                <span class="text-xs font-mono text-slate-400 mt-0.5">8 / 10 Correct</span>
+                            </div>
+                        </div>
+                        <span
+                            class="mt-4 px-3 py-1 rounded-full text-xs font-medium bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 font-mono">
+                            Proficient Level
+                        </span>
+                    </div>
+                    <!-- Key Metrics Grid (8 cols on lg) -->
+                    <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-4" data-purpose="metric-tiles">
+                        <!-- Metric Tile 1 -->
+                        <div
+                            class="p-4 rounded-xl bg-surface-800/40 border border-surface-700 hover:border-slate-600 transition-colors">
+                            <div
+                                class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2 flex items-center justify-between">
+                                <span>Final Score</span>
+                                <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor"
+                                    viewbox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"></path>
+                                </svg>
+                            </div>
+                            <div class="text-2xl font-bold text-slate-100">8 / 10</div>
+                            <div class="text-xs text-emerald-400 mt-1 font-mono">Threshold: 70% min</div>
+                        </div>
+                        <!-- Metric Tile 2 -->
+                        <div
+                            class="p-4 rounded-xl bg-surface-800/40 border border-surface-700 hover:border-slate-600 transition-colors">
+                            <div
+                                class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2 flex items-center justify-between">
+                                <span>Time Spent</span>
+                                <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor"
+                                    viewbox="0 0 24 24">
+                                    <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"></path>
+                                </svg>
+                            </div>
+                            <div class="text-2xl font-bold text-slate-100">14m 32s</div>
+                            <div class="text-xs text-slate-400 mt-1 font-mono">Avg 1m 27s / question</div>
+                        </div>
+                        <!-- Metric Tile 3 -->
+                        <div
+                            class="p-4 rounded-xl bg-surface-800/40 border border-surface-700 hover:border-slate-600 transition-colors">
+                            <div
+                                class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2 flex items-center justify-between">
+                                <span>Status</span>
+                                <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor"
+                                    viewbox="0 0 24 24">
+                                    <path
+                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                                </svg>
+                            </div>
+                            <div class="text-xl font-bold text-emerald-400 flex items-center gap-1.5">
+                                Certified
+                            </div>
+                            <div class="text-xs text-slate-400 mt-1 font-mono">Synced to LMS Ledger</div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Topic Breakdown Section -->
+                <section aria-label="Topic Breakdown" class="border-t border-surface-700/70 pt-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-sm font-semibold uppercase tracking-wider text-slate-300 font-mono">
+                            Knowledge Domain Breakdown
+                        </h2>
+                        <span class="text-xs text-slate-500 font-mono">3 domains evaluated</span>
+                    </div>
+                    <div class="space-y-4">
+                        <!-- Topic 1 -->
+                        <div class="p-4 rounded-lg bg-surface-800/20 border border-surface-700/60">
+                            <div class="flex items-center justify-between text-xs font-mono mb-2">
+                                <span class="text-slate-200 font-medium">Consensus Protocols &amp; Replication (Raft,
+                                    Paxos)</span>
+                                <span class="text-emerald-400 font-bold">3 / 3 (100%)</span>
+                            </div>
+                            <div class="w-full bg-surface-700 rounded-full h-2 overflow-hidden">
+                                <div class="bg-emerald-500 h-2 rounded-full w-full"></div>
+                            </div>
+                        </div>
+                        <!-- Topic 2 -->
+                        <div class="p-4 rounded-lg bg-surface-800/20 border border-surface-700/60">
+                            <div class="flex items-center justify-between text-xs font-mono mb-2">
+                                <span class="text-slate-200 font-medium">Fault Tolerance &amp; Partitioning (CAP
+                                    Theorem)</span>
+                                <span class="text-brand-400 font-bold">3 / 4 (75%)</span>
+                            </div>
+                            <div class="w-full bg-surface-700 rounded-full h-2 overflow-hidden">
+                                <div class="bg-brand-500 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <!-- Topic 3 -->
+                        <div class="p-4 rounded-lg bg-surface-800/20 border border-surface-700/60">
+                            <div class="flex items-center justify-between text-xs font-mono mb-2">
+                                <span class="text-slate-200 font-medium">Distributed Storage Engines &amp;
+                                    LSM-Trees</span>
+                                <span class="text-amber-400 font-bold">2 / 3 (66%)</span>
+                            </div>
+                            <div class="w-full bg-surface-700 rounded-full h-2 overflow-hidden">
+                                <div class="bg-amber-500 h-2 rounded-full" style="width: 66%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- Action Bar Footer -->
+            <div
+                class="px-6 py-4 bg-surface-800/70 border-t border-surface-700 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <!-- Certificate / PDF Export Action -->
+                <button
+                    class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 text-xs font-mono text-slate-400 hover:text-slate-200 hover:bg-surface-700/50 px-3.5 py-2.5 rounded-lg border border-transparent hover:border-surface-600 transition-all duration-150"
+                    type="button">
+                    <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                        <path
+                            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                    <span>Export Official PDF Report</span>
+                </button>
+                <!-- Right Side Interactive Primary/Secondary Buttons -->
+                <div
+                    class="w-full sm:w-auto flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-3">
+                    <!-- Secondary Action: Retake Assessment -->
+                    <button
+                        class="w-full sm:w-auto px-4 py-2.5 rounded-lg text-xs font-mono font-medium text-slate-300 bg-surface-800 hover:bg-surface-700 border border-surface-600 hover:border-slate-500 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                        type="button">
+                        Retake Assessment
+                    </button>
+                    <!-- Primary Action: Review Answers -->
+                    <button
+                        class="w-full sm:w-auto px-5 py-2.5 rounded-lg text-xs font-mono font-medium text-white bg-brand-600 hover:bg-brand-500 border border-brand-500/50 shadow-lg shadow-brand-600/30 transition-colors duration-150 flex items-center justify-center space-x-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-surface-900 focus:ring-brand-500"
+                        type="button">
+                        <span>Review Answers &amp; Explanations</span>
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                            <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- END: Main Dashboard Content -->
+    <!-- BEGIN: Minimal Footer -->
+    <footer class="py-4 border-t border-surface-800/80 text-center text-xs font-mono text-slate-600">
+        Antigravity Internal Learning Management System • Version 3.4.12-prod
+    </footer>
+    <!-- END: Minimal Footer -->
+</body>
+
+</html>

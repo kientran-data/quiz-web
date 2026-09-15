@@ -35,7 +35,7 @@ function App() {
   }
 
   return (
-    <main>
+    <>
       {status === 'idle' && (
         <StartScreen 
           onStart={startQuiz} 
@@ -62,7 +62,7 @@ function App() {
           onRestart={restartQuiz}
         />
       )}
-    </main>
+    </>
   );
 }
 

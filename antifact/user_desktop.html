@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="dark h-full" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Assessment | Antigravity Engineering Training</title>
+    <!-- Tailwind CSS CDN with Forms & Container Queries -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Tailwind Configuration for Enterprise Dark Aesthetic -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                            950: '#0f172a',
+                        },
+                        slate: {
+                            850: '#141e33',
+                            900: '#0f172a',
+                            950: '#090d16',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'SFMono-Regular', 'Menlo', 'monospace'],
+                    }
+                }
+            }
+        };
+    </script>
+    <!-- Typography & Global Surface Tweaks -->
+    <style data-purpose="typography">
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+        body {
+            font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+    <!-- Custom Scrollbar & Micro-details -->
+    <style data-purpose="layout-enhancements">
+        ::selection {
+            background-color: rgba(99, 102, 241, 0.35);
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans antialiased selection:bg-brand-500/30 selection:text-white">
+    <!-- BEGIN: MainHeader -->
+    <header class="border-b border-slate-800/80 bg-slate-900/75 backdrop-blur-md sticky top-0 z-30 px-4 sm:px-8 py-3.5"
+        data-purpose="assessment-navigation-bar">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+            <!-- Left: Platform Brand & Module Context -->
+            <div class="flex items-center gap-3.5 w-full md:w-auto">
+                <div
+                    class="h-8 w-8 rounded-lg bg-gradient-to-br from-indigo-500 to-indigo-700 flex items-center justify-center shadow-inner shadow-white/20 ring-1 ring-white/10 shrink-0">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-sm font-semibold tracking-tight text-white">Antigravity Engineering</span>
+                        <span class="text-slate-600 text-xs hidden sm:inline">•</span>
+                        <span
+                            class="text-xs px-2 py-0.5 rounded-md bg-indigo-500/10 text-indigo-400 font-mono font-medium border border-indigo-500/20">Module
+                            02</span>
+                    </div>
+                    <p class="text-xs text-slate-400 font-normal">Distributed Systems &amp; Consensus Architecture</p>
+                </div>
+            </div>
+            <!-- Right: Candidate Info, Timer Badge & Exit Action -->
+            <div class="flex items-center justify-between md:justify-end gap-3 w-full md:w-auto">
+                <!-- Candidate Identity Badge -->
+                <div
+                    class="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800/50 border border-slate-700/60 text-xs text-slate-300">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Candidate: <strong class="text-slate-200 font-medium">Alex Rivera</strong></span>
+                    <span class="text-slate-500 font-mono text-[11px]">(alex.r@company.internal)</span>
+                </div>
+                <!-- Real-Time Assessment Countdown Clock -->
+                <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-900 border border-amber-500/30 text-amber-300 font-mono text-xs tracking-wide shadow-sm"
+                    data-purpose="session-timer">
+                    <svg class="w-3.5 h-3.5 text-amber-400 animate-pulse" fill="none" stroke="currentColor"
+                        viewbox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" stroke-width="2"></circle>
+                        <polyline points="12 6 12 12 16 14" stroke-width="2"></polyline>
+                    </svg>
+                    <span class="font-semibold">18:42</span>
+                    <span class="text-slate-500 font-sans text-[10px] hidden sm:inline uppercase">rem.</span>
+                </div>
+                <!-- Safe Exit / Save Progress Action -->
+                <button
+                    class="text-xs font-medium text-slate-400 hover:text-white px-3 py-1.5 rounded-md hover:bg-slate-800/60 border border-transparent hover:border-slate-700 transition-colors duration-150"
+                    title="Progress is automatically synced" type="button">
+                    Save &amp; Exit
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- END: MainHeader -->
+    <!-- BEGIN: MainContent -->
+    <main class="flex-1 flex flex-col justify-center px-4 sm:px-6 lg:px-8 py-8 md:py-10 max-w-4xl mx-auto w-full">
+        <!-- Progress Indicator Container -->
+        <section class="mb-6" data-purpose="quiz-progress-tracking">
+            <div class="flex items-center justify-between text-xs text-slate-400 mb-2.5">
+                <div class="flex items-center gap-2">
+                    <span class="font-mono text-indigo-400 font-semibold uppercase tracking-wider text-[11px]">Question
+                        03 of 10</span>
+                    <span class="text-slate-600">/</span>
+                    <span class="text-slate-300 font-medium">Consensus Mechanics</span>
+                </div>
+                <span class="font-mono text-slate-400 text-xs">30% Complete</span>
+            </div>
+            <!-- Segmented Multi-step Track -->
+            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="30"
+                class="w-full bg-slate-800/70 h-1.5 rounded-full overflow-hidden flex gap-1 p-0.5" role="progressbar">
+                <div
+                    class="h-full bg-indigo-500 rounded-full w-[30%] transition-all duration-300 shadow-[0_0_8px_rgba(99,102,241,0.6)]">
+                </div>
+            </div>
+        </section>
+        <!-- Question Core Card -->
+        <article
+            class="bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl p-6 sm:p-8 relative overflow-hidden backdrop-blur-sm"
+            data-purpose="quiz-question-card">
+            <!-- Subtle Ambient Card Glow Accent -->
+            <div aria-hidden="true"
+                class="absolute -top-24 -right-24 w-60 h-60 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none">
+            </div>
+            <!-- Category Meta Pill -->
+            <div class="flex items-center justify-between mb-4">
+                <span
+                    class="inline-flex items-center gap-1.5 text-[11px] font-mono font-semibold tracking-wider text-indigo-300 bg-indigo-950/70 border border-indigo-700/40 px-2.5 py-1 rounded-md uppercase">
+                    <svg class="w-3 h-3 text-indigo-400" fill="none" stroke="currentColor" stroke-width="2"
+                        viewbox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                    System Design &amp; Resiliency
+                </span>
+                <span class="text-[11px] font-mono text-slate-500">Weight: 2.5 pts</span>
+            </div>
+            <!-- Question Title Statement -->
+            <h1 class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-100 leading-snug tracking-tight mb-4">
+                In a distributed consensus protocol like Raft, what mechanism ensures that a newly elected leader has
+                all committed log entries from previous terms?
+            </h1>
+            <!-- Architectural Context Monospace Callout -->
+            <div
+                class="mb-8 p-3.5 bg-slate-950/70 rounded-lg border border-slate-800/80 font-mono text-xs text-slate-300 flex items-start gap-3">
+                <span class="text-indigo-400 select-none font-bold">INFO:</span>
+                <p class="leading-relaxed text-slate-400">
+                    Protocol invariant (§5.4.1 Election Restriction): A candidate must receive votes from a majority
+                    (<span class="text-slate-200">N/2 + 1</span>) of peers to become leader.
+                </p>
+            </div>
+            <!-- Form Options Wrapper -->
+            <form data-purpose="question-options" id="quiz-form">
+                <fieldset class="space-y-3">
+                    <legend class="sr-only">Choose one answer option</legend>
+                    <!-- Option A (Default State) -->
+                    <label
+                        class="group relative flex items-start p-4 rounded-xl border border-slate-800 bg-slate-850/50 hover:bg-slate-800/60 hover:border-slate-700 cursor-pointer transition-all duration-150">
+                        <input class="sr-only" name="raft_invariance" type="radio" value="A" />
+                        <!-- Option Key Badge -->
+                        <span
+                            class="w-7 h-7 rounded-md font-mono text-xs font-semibold flex items-center justify-center shrink-0 border border-slate-700 bg-slate-800 text-slate-400 group-hover:border-slate-600 group-hover:text-slate-200 transition-colors mr-3.5">
+                            A
+                        </span>
+                        <div class="flex-1">
+                            <span
+                                class="text-sm text-slate-300 group-hover:text-slate-100 font-normal leading-relaxed block">
+                                The leader contacts all followers and executes a reverse reconciliation scan during
+                                election bootup.
+                            </span>
+                        </div>
+                        <!-- Custom Radio Ring -->
+                        <span
+                            class="ml-3 h-5 w-5 rounded-full border border-slate-700 bg-slate-900 group-hover:border-slate-500 shrink-0 flex items-center justify-center transition-colors"></span>
+                    </label>
+                    <!-- Option B (Default State) -->
+                    <label
+                        class="group relative flex items-start p-4 rounded-xl border border-slate-800 bg-slate-850/50 hover:bg-slate-800/60 hover:border-slate-700 cursor-pointer transition-all duration-150">
+                        <input class="sr-only" name="raft_invariance" type="radio" value="B" />
+                        <!-- Option Key Badge -->
+                        <span
+                            class="w-7 h-7 rounded-md font-mono text-xs font-semibold flex items-center justify-center shrink-0 border border-slate-700 bg-slate-800 text-slate-400 group-hover:border-slate-600 group-hover:text-slate-200 transition-colors mr-3.5">
+                            B
+                        </span>
+                        <div class="flex-1">
+                            <span
+                                class="text-sm text-slate-300 group-hover:text-slate-100 font-normal leading-relaxed block">
+                                Committed logs are backed up to a shared write-ahead disk volume mounted by all nodes
+                                before voting starts.
+                            </span>
+                        </div>
+                        <!-- Custom Radio Ring -->
+                        <span
+                            class="ml-3 h-5 w-5 rounded-full border border-slate-700 bg-slate-900 group-hover:border-slate-500 shrink-0 flex items-center justify-center transition-colors"></span>
+                    </label>
+                    <!-- Option C (Active / Selected State as specified) -->
+                    <label
+                        class="group relative flex items-start p-4 rounded-xl border-2 border-indigo-500/90 bg-indigo-950/40 shadow-[0_0_15px_rgba(99,102,241,0.15)] ring-1 ring-indigo-500/20 cursor-pointer transition-all duration-150">
+                        <input checked="" class="sr-only" name="raft_invariance" type="radio" value="C" />
+                        <!-- Option Key Badge (Active) -->
+                        <span
+                            class="w-7 h-7 rounded-md font-mono text-xs font-semibold flex items-center justify-center shrink-0 border border-indigo-400/50 bg-indigo-600 text-white shadow-sm mr-3.5">
+                            C
+                        </span>
+                        <div class="flex-1">
+                            <span class="text-sm text-white font-medium leading-relaxed block">
+                                Voters reject candidates whose logs are less up-to-date than their own; any majority
+                                vote must include at least one node with every committed entry.
+                            </span>
+                        </div>
+                        <!-- Custom Active Indicator Badge -->
+                        <span
+                            class="ml-3 h-5 w-5 rounded-full border border-indigo-400 bg-indigo-600 shrink-0 flex items-center justify-center shadow-sm">
+                            <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </span>
+                    </label>
+                    <!-- Option D (Default State) -->
+                    <label
+                        class="group relative flex items-start p-4 rounded-xl border border-slate-800 bg-slate-850/50 hover:bg-slate-800/60 hover:border-slate-700 cursor-pointer transition-all duration-150">
+                        <input class="sr-only" name="raft_invariance" type="radio" value="D" />
+                        <!-- Option Key Badge -->
+                        <span
+                            class="w-7 h-7 rounded-md font-mono text-xs font-semibold flex items-center justify-center shrink-0 border border-slate-700 bg-slate-800 text-slate-400 group-hover:border-slate-600 group-hover:text-slate-200 transition-colors mr-3.5">
+                            D
+                        </span>
+                        <div class="flex-1">
+                            <span
+                                class="text-sm text-slate-300 group-hover:text-slate-100 font-normal leading-relaxed block">
+                                Followers automatically purge uncommitted entries immediately upon receiving a heartbeat
+                                with a higher term ID.
+                            </span>
+                        </div>
+                        <!-- Custom Radio Ring -->
+                        <span
+                            class="ml-3 h-5 w-5 rounded-full border border-slate-700 bg-slate-900 group-hover:border-slate-500 shrink-0 flex items-center justify-center transition-colors"></span>
+                    </label>
+                </fieldset>
+            </form>
+            <!-- Card Footer Navigation & Action Bar -->
+            <footer
+                class="mt-8 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4"
+                data-purpose="question-actions">
+                <!-- Left: Previous Step -->
+                <button
+                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-slate-700/80 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 hover:border-slate-600 active:scale-[0.98] transition-all duration-150"
+                    type="button">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                    Previous Question
+                </button>
+                <!-- Right Group: Review Flag & Next Action -->
+                <div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+                    <!-- Flag Action -->
+                    <button
+                        class="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-lg border border-slate-800 text-xs font-medium text-slate-400 hover:text-amber-400 hover:border-amber-500/30 hover:bg-slate-800/40 transition-colors"
+                        title="Review this question before final submission" type="button">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+                            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+                            <line x1="4" x2="4" y1="22" y2="15"></line>
+                        </svg>
+                        <span class="hidden sm:inline">Flag for Review</span>
+                    </button>
+                    <!-- Primary Proceed Button -->
+                    <button
+                        class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-white text-xs font-semibold px-6 py-2.5 rounded-lg shadow-sm shadow-indigo-600/30 hover:shadow-indigo-500/40 active:scale-[0.98] transition-all duration-150"
+                        type="button">
+                        Next Question
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </footer>
+        </article>
+        <!-- Keyboard Shortcuts Hint for Engineers -->
+        <div class="mt-4 flex items-center justify-center gap-4 text-[11px] font-mono text-slate-500">
+            <span>Keys: <kbd
+                    class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">1</kbd>-<kbd
+                    class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">4</kbd>
+                Select</span>
+            <span>•</span>
+            <span><kbd class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">Enter ↵</kbd>
+                Next</span>
+        </div>
+    </main>
+    <!-- END: MainContent -->
+    <!-- BEGIN: MinimalFooter -->
+    <footer class="border-t border-slate-900 py-3 text-center text-xs text-slate-600 font-mono">
+        Antigravity Learning Engine • Build 2024.11.2-prod
+    </footer>
+    <!-- END: MinimalFooter -->
+</body>
+
+</html>

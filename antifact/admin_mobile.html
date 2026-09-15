@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-slate-950" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport" />
+    <title>Assessment Results - Antigravity Engineering Training</title>
+    <!-- Tailwind CSS v3 CDN with plugins -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Text', 'Segoe UI', 'Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom CSS for Circular Progress Gauge and iOS safe-area handling -->
+    <style data-purpose="custom-gauge-and-ios">
+        .gauge-circle {
+            stroke-dasharray: 440;
+            stroke-dashoffset: calc(440 - (440 * 80) / 100);
+            transition: stroke-dashoffset 1s ease-in-out;
+        }
+
+        .safe-top {
+            padding-top: env(safe-area-inset-top, 12px);
+        }
+
+        .safe-bottom {
+            padding-bottom: env(safe-area-inset-bottom, 20px);
+        }
+    </style>
+</head>
+
+<body
+    class="h-full bg-slate-950 text-slate-100 flex justify-center selection:bg-indigo-500/30 selection:text-indigo-200">
+    <!-- Mobile Screen Container (Standard 390px iOS format) -->
+    <div
+        class="w-full max-w-[390px] min-h-screen bg-slate-950 flex flex-col justify-between border-x border-slate-900/60 shadow-2xl relative">
+        <!-- BEGIN: MobileTopHeader -->
+        <header
+            class="safe-top sticky top-0 z-20 px-4 py-3.5 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/80 flex items-center justify-between"
+            data-purpose="mobile-header">
+            <div class="flex items-center space-x-2.5">
+                <!-- Antigravity Training Small Brand Icon -->
+                <div
+                    class="w-8 h-8 rounded-lg bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center text-indigo-400">
+                    <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2"
+                        viewbox="0 0 24 24">
+                        <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+                <div>
+                    <p class="text-[10px] font-semibold uppercase tracking-wider text-indigo-400">Antigravity Eng</p>
+                    <h1 class="text-sm font-semibold text-slate-100 leading-tight">Training Assessment</h1>
+                </div>
+            </div>
+            <!-- User Profile / Menu Avatar -->
+            <button aria-label="User Profile"
+                class="w-8 h-8 rounded-full bg-slate-800 border border-slate-700/80 flex items-center justify-center text-slate-300 hover:bg-slate-700 active:scale-95 transition-all"
+                type="button">
+                <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
+                    viewbox="0 0 24 24">
+                    <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                </svg>
+            </button>
+        </header>
+        <!-- END: MobileTopHeader -->
+        <!-- BEGIN: MainContent -->
+        <main class="flex-1 px-4 py-5 space-y-4">
+            <!-- Status Banner -->
+            <div
+                class="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-emerald-950/40 border border-emerald-500/30">
+                <div class="flex items-center space-x-2">
+                    <span class="relative flex h-2.5 w-2.5">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                    </span>
+                    <span class="text-xs font-medium text-emerald-300">Assessment Completed</span>
+                </div>
+                <span
+                    class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-bold uppercase tracking-wide bg-emerald-500/20 text-emerald-400 border border-emerald-500/40">
+                    PASSED
+                </span>
+            </div>
+            <!-- Card: Main Score Gauge and Badge -->
+            <section
+                class="bg-slate-900/70 border border-slate-800 rounded-2xl p-5 text-center shadow-lg relative overflow-hidden backdrop-blur-sm"
+                data-purpose="primary-score-display">
+                <!-- Subtle background glow -->
+                <div
+                    class="absolute -top-16 -left-16 w-36 h-36 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none">
+                </div>
+                <div
+                    class="absolute -bottom-16 -right-16 w-36 h-36 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none">
+                </div>
+                <!-- Circular Progress Ring (Score 80% = 8/10) -->
+                <div class="relative w-44 h-44 mx-auto flex items-center justify-center">
+                    <svg class="w-full h-full transform -rotate-90" viewbox="0 0 160 160">
+                        <!-- Track Circle -->
+                        <circle class="text-slate-800" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor"
+                            stroke-width="12"></circle>
+                        <!-- Active Fill Circle -->
+                        <circle class="text-indigo-500 gauge-circle" cx="80" cy="80" fill="transparent" r="70"
+                            stroke="currentColor" stroke-linecap="round" stroke-width="12"></circle>
+                    </svg>
+                    <!-- Score Inner Content -->
+                    <div class="absolute flex flex-col items-center justify-center inset-0">
+                        <span class="text-4xl font-extrabold tracking-tight text-white leading-none">80%</span>
+                        <span class="text-xs font-medium text-slate-400 mt-1.5 tracking-wide">8 / 10 Correct</span>
+                        <span
+                            class="mt-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-indigo-500/15 text-indigo-300 border border-indigo-500/30">
+                            Proficient Level
+                        </span>
+                    </div>
+                </div>
+                <p class="mt-3 text-xs text-slate-400 max-w-[260px] mx-auto">
+                    Distributed Systems &amp; Concurrency Benchmark verified by Engineering Board.
+                </p>
+                <!-- Quick Stats Grid -->
+                <div class="grid grid-cols-2 gap-2.5 mt-4 pt-4 border-t border-slate-800/80">
+                    <div class="bg-slate-950/60 rounded-xl p-2.5 border border-slate-800/60">
+                        <div class="text-[10px] font-medium uppercase tracking-wider text-slate-400">Time Spent</div>
+                        <div class="text-sm font-bold text-slate-100 mt-0.5">14m 32s</div>
+                    </div>
+                    <div class="bg-slate-950/60 rounded-xl p-2.5 border border-slate-800/60">
+                        <div class="text-[10px] font-medium uppercase tracking-wider text-slate-400">Status</div>
+                        <div class="text-sm font-bold text-emerald-400 mt-0.5">Certified</div>
+                    </div>
+                </div>
+            </section>
+            <!-- Section: Domain Performance Breakdown -->
+            <section class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4" data-purpose="domain-performance">
+                <h2 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Domain Breakdown</h2>
+                <div class="space-y-3">
+                    <!-- Item 1: Consensus -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs font-medium">
+                            <span class="text-slate-300">Consensus &amp; Raft</span>
+                            <span class="text-emerald-400 font-semibold">100%</span>
+                        </div>
+                        <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                            <div class="bg-emerald-500 h-full rounded-full w-full"></div>
+                        </div>
+                    </div>
+                    <!-- Item 2: Partitioning -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs font-medium">
+                            <span class="text-slate-300">Partitioning &amp; Replication</span>
+                            <span class="text-indigo-400 font-semibold">75%</span>
+                        </div>
+                        <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                            <div class="bg-indigo-500 h-full rounded-full w-[75%]"></div>
+                        </div>
+                    </div>
+                    <!-- Item 3: Storage -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs font-medium">
+                            <span class="text-slate-300">LSM-Tree Storage Engine</span>
+                            <span class="text-amber-400 font-semibold">66%</span>
+                        </div>
+                        <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                            <div class="bg-amber-500 h-full rounded-full w-[66%]"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- END: MainContent -->
+        <!-- BEGIN: MobileActionButtons -->
+        <footer
+            class="safe-bottom p-4 bg-slate-950/95 border-t border-slate-850 sticky bottom-0 space-y-2.5 backdrop-blur-md"
+            data-purpose="bottom-actions">
+            <!-- Primary Action -->
+            <button
+                class="w-full py-3.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-white text-sm font-semibold shadow-lg shadow-indigo-600/30 transition-all duration-150 flex items-center justify-center space-x-2 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 focus:ring-offset-slate-950"
+                type="button">
+                <span>Review Answers &amp; Explanations</span>
+                <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
+                    viewbox="0 0 24 24">
+                    <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </button>
+            <!-- Secondary Action -->
+            <button
+                class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-850 active:bg-slate-800 text-slate-200 border border-slate-750 text-sm font-medium transition-all duration-150 flex items-center justify-center space-x-2 focus:outline-none focus:ring-2 focus:ring-slate-600"
+                type="button">
+                <svg aria-hidden="true" class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor"
+                    stroke-width="2" viewbox="0 0 24 24">
+                    <path
+                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <span>Retake Assessment</span>
+            </button>
+            <!-- Tertiary Link -->
+            <div class="text-center pt-1">
+                <a class="inline-flex items-center space-x-1.5 text-xs text-indigo-400 hover:text-indigo-300 font-medium transition-colors py-1"
+                    href="#certificate-download">
+                    <svg aria-hidden="true" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                        viewbox="0 0 24 24">
+                        <path
+                            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <span>Download Certificate (.PDF)</span>
+                </a>
+            </div>
+        </footer>
+        <!-- END: MobileActionButtons -->
+    </div>
+</body>
+
+</html>
